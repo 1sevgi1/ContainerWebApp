@@ -2,12 +2,13 @@ version: '3.8'
 
 services:
   backend:
-    build: .
+    build:
+      context: ./backend  # Point to the correct folder
     container_name: task-backend
     ports:
       - "3000:3000"
     volumes:
-      - .:/usr/src/app
+      - ./backend:/usr/src/app
     depends_on:
       - mongo
     environment:
